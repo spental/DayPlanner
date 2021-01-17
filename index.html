@@ -12,12 +12,25 @@
     <title>Work Day Planner </title>
 </head>
 <body>
+    <!-- header with title and subtitle   -->
     <header class="jumbotron">
         <h1 class="titleDisplay">Plan Your Day!</h1>
         <p class="subtitle">Basic Work Day Planner.</p>
+        <!-- day and date grab and fill  -->
         <p id="todaysDate" class="subtitle"></p>
     </header>
     <main>
+        <div class="row HourByHour" data-time="5">
+            <!-- show time -->
+            <div class="col-2 col-med-1 time">5:00 am</div>
+            <!-- text input area -->
+            <textarea class="col-6 col-med-10"></textarea>
+            <!-- save button -->
+            <button class="col-2 col-med-1 btn btn-block saveBtn d-flex justify-content-center align-items-center">
+                <i class="save">
+                </i>
+            </button>
+        </div>
 
     </main>
     
