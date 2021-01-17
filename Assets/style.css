@@ -1,4 +1,6 @@
-.saveBtn {
+button.col-2.col-lg-1.btn.btn-block.saveBtn {
+    border-radius: 3px;
+    border-style: solid;
     border: black;
     background-color: yellow;
     color: gray;
@@ -15,10 +17,24 @@
     border-top: 2px solid gray;
     white-space: pre-wrap;
 }
-#save {
-    border: black;
-    background-color: yellow;
-}
+
 main {
     margin: 5% 5% 5% 5%;
+}
+header.jumbotron {
+    align-content: center;
+    text-align: center;
+    background-color:#ffba00;
+}
+/* .HourByHour {
+    border-radius: 10px;
+    text-align: center; */
+}
+/* .col-2.col-lg-1.time {
+    border: solid;
+    color: black; */
+}
+textarea {
+    border: solid;
+    color: black;
 }
