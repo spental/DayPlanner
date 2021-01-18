@@ -52,4 +52,6 @@ $(document).ready(function(){
     scheduleContent.on("click", "button", saveData);
 });
 
+console.log("I HATE THESE HOMEWORKS AND JAVASCRIPT!!")
+
 
