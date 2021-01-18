@@ -22,7 +22,7 @@ SO THAT I can manage my time effectively
 # Screen Shots
 
 -Opened Application
-![opened Application] (app.png)
+![Application] (app.png)
 
 # Links
 
