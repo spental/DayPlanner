@@ -37,3 +37,17 @@ textarea {
     color: black;
 }
 
+.current {
+    background-color: rgb(180, 61, 17);
+    color: white;
+}
+.past {
+    background-color: yellow;
+    color: white;
+
+}
+.future {
+    background-color: green;
+    color: white;
+
+}

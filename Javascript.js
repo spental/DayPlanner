@@ -32,6 +32,23 @@ function saveData (){
     renderSchedule();
 }
 
+function colorRows() {
+    timeRow.each(function(){
+        var thisRow = $(this);
+        var thisRowHr = parseInt(thisRow.attr("data-time"));
+
+        if (thisRowHr == currentHour){
+            thisRow.addClass("current").removeClass("past future");
+        }
+        if (thisRowHr < currentHour){
+            thisRow.addClass("current").removeClass("current future");
+        }
+        if (thisRowHr > currentHour){
+            thisRow.addClass("current").removeClass("past current");
+        }
+    });
+}
+
 function renderSchedule() {
 
     userContent = localStorage.getItem("userToDos");
@@ -44,6 +61,8 @@ function renderSchedule() {
     }
 }
 $(document).ready(function(){
+   colorRows();
+
     if (!localStorage.getItem("userToDos")){
         startSchedule();
     }
@@ -51,6 +70,7 @@ $(document).ready(function(){
     renderSchedule();
     scheduleContent.on("click", "button", saveData);
 });
+
 
 console.log("I HATE THESE HOMEWORKS AND JAVASCRIPT!!")
 
