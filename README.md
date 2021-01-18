@@ -21,8 +21,8 @@ SO THAT I can manage my time effectively
 
 # Screen Shots
 
--Opened Application
-![Application] (https://github.com/spental/DayPlanner/blob/main/app.png?raw=true)
+
+![Application](https://github.com/spental/DayPlanner/blob/main/app.png?raw=true)
 
 # Links
 
