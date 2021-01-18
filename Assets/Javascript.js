@@ -1,29 +1,13 @@
 // VARIABLES
 
-var today = $("#todaysDate");
-var scheduleContent = $("scheduelcontent");
-var timeRow = $("hourByHour");
+var todaysDate = $("#todaysDate");
+var scheduleContent = $(".scheduelcontent");
+var timeRow = $(".hourByHour");
 var currentDate = moment().format("dddd, MMMM Do");
 var currentHour = moment().format("H");
 var userContent = [];
 
-// save function
-function saveData (){
-    var hourToUpdate = $(this).parent().attr("data-time");
-    var itemsToAdd = (($(this).parent()).children("textarea")).val();
-    for (var j = 0,; j < userContent.length; j++) {
-       if (userContent[j].hour == hourToUpdate) {
-           userContent[j].text = itemsToAdd;
-       }
-    }
-    localStorage.setItem("userToDos", JSON.stringify(userContent));
-    renderSchedule();
-}
-
-
-// declare new function
 function startSchedule() {
-    // loops DOM iterates over, selects data and adds to element
     timeRow.each(function(){
         var thisRow= $(this);
         var thisRowHr = parseInt(thisRow.attr("data-time"));
@@ -34,36 +18,59 @@ function startSchedule() {
         }
         userContent.push(todoObj);
     });
-    // save to storage afer loops 
     localStorage.setItem("userToDos", JSON.stringify(userContent))
+    console.log("schedule runs");
 };
+function saveData (){
+    var hourToUpdate = $(this).parent().attr("data-time");
+    var itemsToAdd = (($(this).parent()).children("textarea")).val();
+    for (var j = 0; j < userContent.length; j++) {
+       if (userContent[j].hour == hourToUpdate) {
+           userContent[j].text = itemsToAdd;
+       }
+    }
+    localStorage.setItem("userToDos", JSON.stringify(userContent));
+    renderSchedule();
+    console.log("save data runs");
+}
+// function setUpRows() {
+//     timeRow.each(function() {
+//         var thisRow = $(this);
+//         var thisRowHr = parsenInt(thisRow.attr("data-time"));
 
+//         if (thisRowHr == currentHour){
+//             thisRow.addClass("present").removeClass("past future");
+//         }
+//         if (thisRowHr < currentHour){
+//             thisRow.addClass("past").removeClass("present future");
+//         }
+//         if (thisRowHr > currentHour){
+//             thisRow.addClass("future").removeClass("past present");
+//         }
+//     });
+// }
 // getting arrays or pull from local 
-
 function renderSchedule() {
 
     userContent = localStorage.getItem("userToDos");
-    userContent = JSON.parrse(userContent);
+    userContent = JSON.parse(userContent);
 
     for (var i = 0; i <userContent.length; i++){
         var itemHour = userContent[i].hour;
         var itemText = userContent[i].text;
-        $("[data-time=" + itemHour + "]").childre("textarea").val(itemText);
+        $("[data-time=" + itemHour + "]").children("textarea").val(itemText);
     }
+    console.log("render schedule works");
 }
-
 $(document).ready(function(){
-    setUpRows();
-
+    // setUpRows();
     if (!localStorage.getItem("userToDos")){
         startSchedule();
     }
-
-    today.text(currentDate);
-
+    todaysDate.text(currentDate);
     renderSchedule();
-
-    scheduleArea.on("click","button", saveIt);
+    scheduleContent.on("click", "button", saveData);
+    console.log("it works");
 });
 
 

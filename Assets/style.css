@@ -1,9 +1,7 @@
-button.col-2.col-lg-1.btn.btn-block.saveBtn {
-    border-radius: 3px;
-    border-style: solid;
-    border: black;
-    background-color: yellow;
-    color: gray;
+.btn {
+    background-color: rgb(203, 203, 6);
+    border: 1px solid black;
+    
 }
 
 .time-row {
@@ -38,3 +36,4 @@ textarea {
     border: solid;
     color: black;
 }
+
