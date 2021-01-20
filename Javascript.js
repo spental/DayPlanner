@@ -8,8 +8,8 @@ var currentHour = moment().format("H");
 var userContent = [];
 
 function startSchedule() {
-    timeRow.each(function(){
-        var thisRow= $(this);
+    timeRow.each(function() {
+        var thisRow = $(this);
         var thisRowHr = parseInt(thisRow.attr("data-time"));
 
         var todoObj = {
@@ -20,31 +20,32 @@ function startSchedule() {
     });
     localStorage.setItem("userToDos", JSON.stringify(userContent))
 };
-function saveData (){
+
+function saveData() {
     var hourToUpdate = $(this).parent().attr("data-time");
     var itemsToAdd = (($(this).parent()).children("textarea")).val();
     for (var j = 0; j < userContent.length; j++) {
-       if (userContent[j].hour == hourToUpdate) {
-           userContent[j].text = itemsToAdd;
-       }
+        if (userContent[j].hour == hourToUpdate) {
+            userContent[j].text = itemsToAdd;
+        }
     }
     localStorage.setItem("userToDos", JSON.stringify(userContent));
     renderSchedule();
 }
 
 function colorRows() {
-    timeRow.each(function(){
+    timeRow.each(function() {
         var thisRow = $(this);
         var thisRowHr = parseInt(thisRow.attr("data-time"));
 
-        if (thisRowHr == currentHour){
+        if (thisRowHr == currentHour) {
             thisRow.addClass("current").removeClass("past future");
         }
-        if (thisRowHr < currentHour){
-            thisRow.addClass("current").removeClass("current future");
+        if (thisRowHr < currentHour) {
+            thisRow.addClass("past").removeClass("current future");
         }
-        if (thisRowHr > currentHour){
-            thisRow.addClass("current").removeClass("past current");
+        if (thisRowHr > currentHour) {
+            thisRow.addClass("future").removeClass("past current");
         }
     });
 }
@@ -54,16 +55,16 @@ function renderSchedule() {
     userContent = localStorage.getItem("userToDos");
     userContent = JSON.parse(userContent);
 
-    for (var i = 0; i <userContent.length; i++){
+    for (var i = 0; i < userContent.length; i++) {
         var itemHour = userContent[i].hour;
         var itemText = userContent[i].text;
         $("[data-time=" + itemHour + "]").children("textarea").val(itemText);
     }
 }
-$(document).ready(function(){
-   colorRows();
+$(document).ready(function() {
+    colorRows();
 
-    if (!localStorage.getItem("userToDos")){
+    if (!localStorage.getItem("userToDos")) {
         startSchedule();
     }
     todaysDate.text(currentDate);
@@ -73,5 +74,3 @@ $(document).ready(function(){
 
 
 console.log("I HATE THESE HOMEWORKS AND JAVASCRIPT!!")
-
-
