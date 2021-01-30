@@ -39,19 +39,22 @@ textarea {
 
 .current {
     background-color: rgb(180, 61, 17);
-    color: white;
+    color: black;
 }
 .past {
     background-color: yellow;
-    color: white;
+    color: black;
 
 }
 .future {
     background-color: green;
-    color: white;
+    color: black;
 
 }
 .col-8-col-md-10 {
     background-color: ;
 
+}
+#text {
+    color: black;
 }
