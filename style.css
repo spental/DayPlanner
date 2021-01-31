@@ -58,3 +58,19 @@ textarea {
 #text {
     color: black;
 }
+.jumbotron {
+    margin: 0% 2% 0% 2%;
+    border: black;
+    border-width: 3px;
+    border-style: solid;
+}
+.row {
+    border: black;
+    border-width: 3px;
+    border-style: solid;
+}
+.saveBtn {
+    border: black;
+    border-width: 3px;
+    border-style: solid;
+}
